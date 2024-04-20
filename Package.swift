@@ -12,15 +12,15 @@ let package = Package(
             targets: ["FirePhoneOTP"]),
     ],
     dependencies: [
-        .package(name: "Firebase", url: "https://github.com/firebase/firebase-ios-sdk", from: "10.0.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(stringLiteral: "10.0.0")),
         .package(url: "https://github.com/jonahaung2/CountryPhoneCodeTextField", from: .init(stringLiteral: "1.0.0")),
     ],
     targets: [
         .target(
             name: "FirePhoneOTP",
             dependencies: [
-                "CountryPhoneCodeTextField",
-                .product(name: "FirebaseAuth", package: "Firebase")
+                .product(name: "CountryPhoneCodeTextField", package: "CountryPhoneCodeTextField"),
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk")
             ]),
         .testTarget(
             name: "FirePhoneOTPTests",
