@@ -12,9 +12,9 @@ import FirePhoneOTP
 ### Usage
 
 ```swift
-    var body: some Scene {
-        WindowGroup {
-            PhoneOTPLoginView()
-        }
+var body: some Scene {
+    WindowGroup {
+        PhoneOTPLoginView()
     }
+}
 ```
