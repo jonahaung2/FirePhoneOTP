@@ -15,6 +15,9 @@ public struct PhoneOTPLoginView: View {
     @State private var otp = ""
     @StateObject private var viewModel = PhoneOTPViewModel()
     
+    public init() {
+        
+    }
     public var body: some View {
         Form {
             Section {
