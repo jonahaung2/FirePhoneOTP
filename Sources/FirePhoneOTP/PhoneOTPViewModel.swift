@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import SwiftUI
 
-class PhoneOTPViewModel: ObservableObject {
+public class PhoneOTPViewModel: ObservableObject {
     
     enum LoginSteps: Hashable, Equatable {
         case requestCode, verifyOTP, loading
