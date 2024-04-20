@@ -9,13 +9,13 @@ import SwiftUI
 import CountryPhoneCodeTextField
 import XUI
 
-struct PhoneOTPLoginView: View {
+public struct PhoneOTPLoginView: View {
     
     @State private var phoneNumber = PhoneNumber.locale
     @State private var otp = ""
-    @StateObject var viewModel = PhoneOTPViewModel()
+    @StateObject private var viewModel = PhoneOTPViewModel()
     
-    var body: some View {
+    public var body: some View {
         Form {
             Section {
                 PhoneNumberTextField(phoneNumber: $phoneNumber)
