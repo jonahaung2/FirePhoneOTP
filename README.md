@@ -1,7 +1,7 @@
 Swift Package Manager for Phone number login using Firebase
 
-## Swift Package Manager
-`ttps://github.com/jonahaung2/FirePhoneOTP`
+## Installation: Swift Package Manager
+`https://github.com/jonahaung2/FirePhoneOTP`
 
 ## Setup
 
