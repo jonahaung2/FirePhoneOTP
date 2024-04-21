@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(stringLiteral: "10.0.0")),
-        .package(url: "https://github.com/jonahaung2/CountryPhoneCodeTextField", from: .init(stringLiteral: "1.0.0")),
+        .package(url: "https://github.com/jonahaung2/CountryPhoneCodeTextField", from: .init(stringLiteral: "5.1.0")),
     ],
     targets: [
         .target(
