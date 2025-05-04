@@ -1,4 +1,4 @@
-// swift-tools-version: 5.10
+// swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -12,7 +12,7 @@ let package = Package(
             targets: ["FirePhoneOTP"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(stringLiteral: "10.0.0")),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: .init(stringLiteral: "11.12.0")),
         .package(url: "https://github.com/jonahaung2/CountryPhoneCodeTextField", from: .init(stringLiteral: "5.1.0")),
     ],
     targets: [
