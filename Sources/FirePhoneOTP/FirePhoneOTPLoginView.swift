@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import CountryPhoneCodeTextField
-import XUI
+import PhoneNumberKit
 
 public struct FirePhoneOTPLoginView: View {
     @StateObject private var viewModel = FirePhoneOTPLoginViewModel()
@@ -25,7 +24,7 @@ public struct FirePhoneOTPLoginView: View {
                         .padding(.horizontal)
                         .focused($focused, equals: .enterPhoneNumber)
                         .onAppear {
-                            if viewModel.phoneNumber.rawString.isWhitespace {
+							if viewModel.phoneNumber.rawString.isEmpty {
                                 focused = .enterPhoneNumber
                             }
                         }
@@ -38,17 +37,17 @@ public struct FirePhoneOTPLoginView: View {
                         .padding()
                     Text(error)
                         .foregroundStyle(.secondary)
-                    AsyncButton {
+                    Button {
                         focused = .enterPhoneNumber
                         viewModel.reset()
                     } label: {
                         Text("Reset")
-                            ._borderedProminentLightButtonStyle()
+//                            ._borderedProminentLightButtonStyle()
                     }
                     
                 case .loggedIn(let user, isNewUser: let isNewUser):
                     Text(user.phoneNumber ?? "Phone")
-                        ._badged(isNewUser ? "New" : "Existing")
+                        .badge(isNewUser ? "New" : "Existing")
                 }
                 Spacer()
             }
@@ -58,8 +57,10 @@ public struct FirePhoneOTPLoginView: View {
                     if viewModel.isLoading {
                         ProgressView()
                             .padding()
-                            ._onAppear(after: 0.5) {
-                                focused = nil
+							.onAppear {
+								DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+									focused = nil
+								}
                             }
                     }
                 }

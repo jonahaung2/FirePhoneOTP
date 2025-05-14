@@ -7,9 +7,10 @@
 
 import Foundation
 import FirebaseAuth
-import CountryPhoneCodeTextField
+import PhoneNumberKit
 import Combine
 
+@MainActor
 class FirePhoneOTPLoginViewModel: ObservableObject {
     
     @Published var viewState = FirePhoneLoginViewState.enterPhoneNumber
@@ -46,7 +47,7 @@ extension FirePhoneOTPLoginViewModel {
         isLoading = true
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] (verificationId, error) in
             guard let self else { return }
-            DispatchQueue.main.async {
+			MainActor.assumeIsolated {
                 self.isLoading = false
                 if let error {
                     self.viewState = .error(error.localizedDescription)
