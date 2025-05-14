@@ -22,7 +22,7 @@ let package = Package(
             dependencies: [
 //                .product(name: "CountryPhoneCodeTextField", package: "CountryPhoneCodeTextField"),
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
-				"PhoneNumberKit"
+				.product(name: "PhoneNumberKit", package: "PhoneNumberKit")
             ]),
         .testTarget(
             name: "FirePhoneOTPTests",
