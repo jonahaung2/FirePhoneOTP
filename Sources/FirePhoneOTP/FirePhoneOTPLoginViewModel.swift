@@ -47,7 +47,7 @@ extension FirePhoneOTPLoginViewModel {
         isLoading = true
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] (verificationId, error) in
             guard let self else { return }
-			MainActor.assumeIsolated {
+			DispatchQueue.main.async {
                 self.isLoading = false
                 if let error {
                     self.viewState = .error(error.localizedDescription)
